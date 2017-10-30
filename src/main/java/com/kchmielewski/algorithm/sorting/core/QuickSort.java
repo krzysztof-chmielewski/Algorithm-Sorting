@@ -5,7 +5,7 @@ public class QuickSort implements SortingAlgorithm {
     public int[] sort(int[] data) {
         sort(data, 0, data.length - 1);
 
-        return data;
+       return data;
     }
 
     private void sort(int[] data, int lowerIndex, int higherIndex) {
