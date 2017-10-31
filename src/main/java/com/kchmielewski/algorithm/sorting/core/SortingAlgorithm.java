@@ -2,7 +2,7 @@ package com.kchmielewski.algorithm.sorting.core;
 
 public interface SortingAlgorithm {
 
-    int[] sort(int[] data);
+    SortingResult sort(int[] data);
 
     default void swap(int[] data, int a, int b) {
         int temp = data[a];

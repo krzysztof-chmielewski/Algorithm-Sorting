@@ -2,17 +2,19 @@ package com.kchmielewski.algorithm.sorting.core;
 
 public class BubbleSort implements SortingAlgorithm {
     @Override
-    public int[] sort(int[] data) {
+    public SortingResult sort(int[] data) {
+        int swaps = 0;
+        int iterations = 0;
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data.length - i - 1; j++) {
+                iterations++;
                 if (data[j] > data[j + 1]) {
-                    int temp = data[j];
-                    data[j] = data[j + 1];
-                    data[j + 1] = temp;
+                    swaps++;
+                    swap(data, j, j+ 1);
                 }
             }
         }
 
-        return data;
+        return new SortingResult(data, swaps, iterations);
     }
 }

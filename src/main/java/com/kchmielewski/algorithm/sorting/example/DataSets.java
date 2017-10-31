@@ -17,4 +17,23 @@ public class DataSets {
 
         return result;
     }
+
+    public static int[] ascending(int size) {
+        int[] result = new int[size];
+        for (int i = 0; i < size; i++) {
+            result[i] = i + 1;
+        }
+
+        return result;
+    }
+
+    public static int[] descending(int size) {
+        int[] result = new int[size];
+
+        for (int i = 0; i < size; i++) {
+            result[i] = size - i;
+        }
+
+        return result;
+    }
 }
