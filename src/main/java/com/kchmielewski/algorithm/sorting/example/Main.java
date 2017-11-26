@@ -5,13 +5,15 @@ import com.kchmielewski.algorithm.sorting.core.*;
 import javax.xml.crypto.Data;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
 import java.util.Random;
+import java.util.concurrent.ExecutionException;
 
 public class Main {
-    public static void main(String[] args) {
-        List<SortingAlgorithm> algorithms = Arrays.asList(new BubbleSort(), new InsertionSort(), new QuickSort());
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        List<SortingAlgorithm> algorithms = Arrays.asList(new QuickSortConcurrent(), new QuickSort());
 
-        int n = 1000;
+        int n = 10000;
         int[][] data = new int[n][];
         for (int i = 0; i < n; i++) {
             data[i] = DataSets.random(5000, 5000, new Random());
@@ -24,6 +26,7 @@ public class Main {
                 sortingAlgorithm.sort(array);
             }
             System.out.println("Total time for " + sortingAlgorithm + ": " + (System.currentTimeMillis() - time));
+            sortingAlgorithm.close();
         }
 
     }
